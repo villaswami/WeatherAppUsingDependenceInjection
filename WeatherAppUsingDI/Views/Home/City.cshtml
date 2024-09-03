@@ -1,0 +1,26 @@
+﻿
+@{
+ ViewBag.Title = "City Weather";
+ if (Model != null)
+ {
+  //prefix city name before the word "City Weather" in the page title
+  ViewBag.Title = Model.CityName + " | " + ViewBag.Title;
+ }
+}
+
+@if (Model != null)
+{
+ <div class="box cursor-pointer w-30 margin-auto margin-top-200">
+ 
+   @await Component.InvokeAsync("City",new{city=Model})
+  
+ </div>
+
+ <div class="text-center">
+  <a href="~/">Back to Weather Home Page</a>
+ </div>
+}
+else
+{
+ <h3>City Code is not valid.</h3>
+}
